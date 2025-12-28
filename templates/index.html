@@ -13,18 +13,20 @@
             {% set lecturers = get_section(path="lektori/_index.md")%}
             {% for slug in lecturers.extra.lecturers %}
                 {% if slug != "" %}
-                {% set lecturer = get_page(path="lektori/" ~ slug ~ ".md") %}
-                {% set classes = "lecturer-card" %}
+                    {% set lecturer = get_page(path="lektori/" ~ slug ~ ".md") %}
+                    {% set classes = "lecturer-card" %}
                 {% else %}
-                {% set lecturer = load_data(literal='{
-                    "title": "",
-                    "bio": "Brzy se dozvíte, kdo další se přidá do týmu.",
-                }') %}
-                {% set classes = "lecturer-card placeholder" %}
+                    {% set lecturer = load_data(literal='{
+                        "title": "?",
+                        "extra": {
+                            "bio": "Brzy se dozvíte o dalších lektorech, kteří budou s námi spolupracovat."
+                        }
+                    }', format="json") %}
+                    {% set classes = "lecturer-card placeholder" %}
                 {% endif %}
                 <div class="{{ classes }}">
                     <img class="photo" src="people/{{ slug }}.jpeg">
-                    <div class="name">{{ lecturer.title | default(value="?") }}</div>
+                    <div class="name">{{ lecturer.title | default(value="") }}</div>
                     <div class="bio">{{ lecturer.extra.bio | default(value="") }}</div>
                 </div>
             {% endfor %}
