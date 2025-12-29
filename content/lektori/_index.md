@@ -2,5 +2,5 @@
 title = "Lecturers"
 
 [extra]
-lecturers = ["kiki", "", "", "", ""]
+lecturers = ["kiki", "slavka", ""]
 +++

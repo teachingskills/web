@@ -25,7 +25,7 @@
                     {% set classes = "lecturer-card placeholder" %}
                 {% endif %}
                 <div class="{{ classes }}">
-                    <img class="photo" src="people/{{ slug }}.jpeg">
+                    <img class="photo" src="people/{{ slug }}.webp">
                     <div class="name">{{ lecturer.title | default(value="") }}</div>
                     <div class="bio">{{ lecturer.extra.bio | default(value="") }}</div>
                 </div>
