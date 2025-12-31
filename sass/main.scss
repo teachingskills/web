@@ -72,8 +72,8 @@ a[href].action {
   width: fit-content;
   padding: 0.5rem 1rem;
   margin: 1rem auto;
-  background-color: $medium-brown;
-  color: $cloud-dancer;
+  background-color: $bright-lapis;
+  color: $pure-white;
   text-decoration: none;
   text-align: center;
   font-size: 1.2em;
@@ -81,15 +81,8 @@ a[href].action {
   font-weight: 600;
   transition: background-color 0.2s ease, transform 0.1s ease;
 
-  &:hover,
-  &:focus {
-    //background-color: $cta-hover;
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
+  &:hover, &:focus {}
+  &:active {}
 }
 
 code, pre {
