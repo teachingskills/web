@@ -24,7 +24,7 @@
                     {% else %}
                         {% set classes = "" %}
                     {% endif %}
-                    <div><a href="{{ url }}" class="{{ classes }}">{{ link.name }}</a></div>
+                    <a href="{{ url }}" class="{{ classes }}">{{ link.name }}</a>
                 {% endfor %}
             </nav>
         </div>

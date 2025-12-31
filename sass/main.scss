@@ -1,6 +1,7 @@
 $max-width: 1200px;
 $photo-width: 240px;
 $horizontal-padding: 1.5rem;
+$paragraph-spacing: 1.25rem;
 
 $font-sans: 'Verdana', sans-serif;
 $font-mono: 'Courier New', monospace;
@@ -25,7 +26,15 @@ $bright-lapis: #3f88c5;
   box-sizing: border-box;
 }
 
+html {
+  font-size: clamp(16px, 1.2vw + 0.5rem, 20px);
+}
+
 body {
+  background: $darkest-brown;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: $font-sans;
   color: $text-primary;
   line-height: 1.6;
@@ -33,6 +42,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  color: $darkest-brown;
   font-family: $font-sans;
   font-weight: bold;
   margin: 0 0 1rem 0;
@@ -42,8 +52,44 @@ p, li, blockquote {
   font-family: $font-sans;
 }
 
+p + p {
+  margin-top: $paragraph-spacing;
+}
+
 strong, em {
   color: $text-emphasis;
+}
+
+a[href] {
+  color: $rich-lapis;
+
+  &:hover {
+  }
+}
+
+a[href].action {
+  display: block;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin: 1rem auto;
+  background-color: $medium-brown;
+  color: $cloud-dancer;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.2em;
+  border-radius: 0.5em;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  &:hover,
+  &:focus {
+    //background-color: $cta-hover;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }
 
 code, pre {
@@ -67,7 +113,6 @@ header {
   color: $text-on-accent-secondary;
 
   > div {
-    min-height: 5rem;
     width: 100%;
     max-width: $max-width;
     margin: 0 auto;
@@ -75,15 +120,14 @@ header {
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 1.5rem;
     font-weight: bold;
 
     > h1 {
       margin: auto 0;
-      flex: 1 0 300px;
-      padding: 0 $horizontal-padding;
-      font-size: 2rem;
-      line-height: 5rem;
+      flex: 1 0 auto;
+      padding-left: $horizontal-padding;
+      font-size: 1.4rem;
+      line-height: 4rem;
     }
 
     > input[type="checkbox"] {
@@ -92,46 +136,50 @@ header {
     }
 
     > label {
-      flex: 0 0 5rem;
+      flex: 0 0 4rem;
       display: none;
       @media (max-width: 768px) {
         display: block;
       }
       @media (max-width: 399px) {
-        flex: 0 0 100%;
+        //flex: 0 0 100%;
       }
-      width: 5rem;
-      height: 5rem;
-      background-color: $cloud-dancer;
-      color: $darkest-brown;
+      color: $cloud-dancer;
+      //background-color: $darkest-brown;
       font-size: 2rem;
-
-      line-height: 5rem;
+      line-height: 4rem;
       text-align: center;
       margin: auto;
     }
 
     > nav {
-      padding: 0 $horizontal-padding;
       display: flex; 
+      padding-right: $horizontal-padding;
       flex-direction: inherit;
       flex-wrap: inherit;
       gap: 2rem;
 
+      > a {
+        line-height: 3rem;
+        display: block;
+      }
+
       @media (max-width: 768px) {
         display: none;
+        padding: 0.5em 0 0.8em 0;
         width: 100%;
         background-color: $darkest-brown;
 
-        > div {
-          line-height: 2rem;
-          padding: 1rem 0;
+        > a {
+          padding: 0 $horizontal-padding;
+          line-height: 3rem;
+          font-size: 1.6rem;
         }
       }
     }
   }
 
-  a {
+  a[href] {
     color: $text-on-accent;
     text-decoration: none;
 
@@ -147,12 +195,13 @@ header {
 }
 
 main {
+  flex: 1;
   background-color: $pure-white;
   padding: 1em 0;
 }
 
 footer {
-  background-color: $darkest-brown;
+  //background-color: $darkest-brown;
   color: $text-on-accent;
 
   .container {
@@ -163,10 +212,6 @@ footer {
       margin: 0 auto;
     }
   }
-}
-
-#intro {
-  font-size: 1.2rem;
 }
 
 .lecturers-container {
